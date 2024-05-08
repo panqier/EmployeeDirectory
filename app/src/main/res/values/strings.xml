@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EmployeeDirectory</string>
+    <string name="loading">Loading Data...</string>
+    <string name="error_button">OK</string>
+    <string name="error_title">There was an error. Please try again later</string>
+    <string name="empty_string">I AM APP NAME</string>
+    <string name="email_copy_string">Email has been copied</string>
+    <string name="email_copy_icon">copied</string>
+</resources>
