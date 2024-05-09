@@ -48,7 +48,7 @@ class EmployeeDirectoryViewModel(
         }
     }
 
-    private fun isValidResponse(employeesList: EmployeesList): Boolean {
+    fun isValidResponse(employeesList: EmployeesList): Boolean {
         return employeesList.employees.all { employee ->
             employee.uuid?.isNotEmpty() ?: false &&
                     employee.full_name?.isNotEmpty() ?: false &&
