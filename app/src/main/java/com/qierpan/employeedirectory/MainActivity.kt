@@ -1,7 +1,6 @@
 package com.qierpan.employeedirectory
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.appcompat.app.AppCompatActivity
 import com.qierpan.employeedirectory.ui.EmployeeDirectoryListFragment
 
