@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.lang.Error
 
 class EmployeeDirectoryViewModel(
     application: Application
@@ -24,10 +23,17 @@ class EmployeeDirectoryViewModel(
                 object :
                     GetEmployeeDirectoryService.EmployeeDirectoryService {
                     override fun onResponse(employeesList: EmployeesList) {
-                        _uistate.value = _uistate.value.copy(
-                            isLoading = false,
-                            employeesList = employeesList
-                        )
+                        if (isValidResponse(employeesList)) {
+                            _uistate.value = _uistate.value.copy(
+                                isLoading = false,
+                                employeesList = employeesList
+                            )
+                        } else {
+                            _uistate.value = _uistate.value.copy(
+                                isLoading = false,
+                                error = "Response contains missing fields"
+                            )
+                        }
                     }
 
                     override fun onFailure(error: Error) {
@@ -41,5 +47,20 @@ class EmployeeDirectoryViewModel(
             )
         }
     }
+
+    private fun isValidResponse(employeesList: EmployeesList): Boolean {
+        return employeesList.employees.all { employee ->
+            employee.uuid?.isNotEmpty() ?: false &&
+                    employee.full_name?.isNotEmpty() ?: false &&
+                    employee.phone_number?.isNotEmpty() ?: false &&
+                    employee.email_address?.isNotEmpty() ?: false &&
+                    employee.biography?.isNotEmpty() ?: false &&
+                    employee.photo_url_small?.isNotEmpty() ?: false &&
+                    employee.photo_url_large?.isNotEmpty() ?: false &&
+                    employee.team?.isNotEmpty() ?: false &&
+                    employee.employee_type?.isNotEmpty() ?: false
+        }
+    }
+
 
 }

@@ -56,15 +56,15 @@ fun EDLoadingView() {
                 modifier =
                 Modifier
                     .padding(top = 5.dp, bottom = 5.dp)
-                    .size(48.dp),
+                    .size(56.dp),
                 strokeWidth = 3.dp,
                 color = colorResource(id = com.qierpan.employeedirectory.R.color.blue_light),
             )
             Text(
                 text = stringResource(id = com.qierpan.employeedirectory.R.string.loading),
                 modifier = Modifier.padding(top = 15.dp),
-                color = colorResource(id = com.qierpan.employeedirectory.R.color.white),
-                fontSize = 14.sp
+                color = colorResource(id = com.qierpan.employeedirectory.R.color.black),
+                fontSize = 18.sp
             )
         }
     }
