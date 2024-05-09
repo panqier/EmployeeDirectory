@@ -35,6 +35,7 @@ Logic:
 Fetch Service when app open -> Loading View display -> 
 if service successed -> display list
 if service failed or response malformed -> display error dialog
+
 ![Screenshot_20240508_232018_Gallery](https://github.com/panqier/EmployeeDirectory/assets/70109318/f71e4602-0c9a-4b47-9549-a0371d0c7ab4)
 
 ![Screenshot_20240508_232032_Gallery](https://github.com/panqier/EmployeeDirectory/assets/70109318/a61819d0-779b-40ab-8d65-dddd5ece6384)
